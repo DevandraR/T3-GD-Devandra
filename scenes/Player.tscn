@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://bq4q0vbsqxcwp"]
+
+[ext_resource type="Script" path="res://scenes/Player.gd" id="1_57684"]
+[ext_resource type="Texture2D" uid="uid://cirwssqa1y3jv" path="res://assets/fasilkom.png" id="2_8f6mc"]
+[ext_resource type="Texture2D" uid="uid://1xshihxylvkf" path="res://assets/kenney_platformercharacters/Vector/player_vector.svg" id="3_0nppa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyapu"]
+size = Vector2(61, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dajxx"]
+atlas = ExtResource("3_0nppa")
+region = Rect2(240, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdhbe"]
+atlas = ExtResource("3_0nppa")
+region = Rect2(0, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37kde"]
+atlas = ExtResource("3_0nppa")
+region = Rect2(160, 220, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1wfn"]
+atlas = ExtResource("3_0nppa")
+region = Rect2(160, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21uie"]
+atlas = ExtResource("3_0nppa")
+region = Rect2(0, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdo5m"]
+atlas = ExtResource("3_0nppa")
+region = Rect2(80, 110, 80, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v5rk2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dajxx")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdhbe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37kde")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1wfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21uie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdo5m")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(279, 135)
+script = ExtResource("1_57684")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 7)
+shape = SubResource("RectangleShape2D_wyapu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_8f6mc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v5rk2")
+animation = &"jump"
