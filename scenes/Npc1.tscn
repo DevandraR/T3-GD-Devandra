@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://botyeca0d8gs4"]
+
+[ext_resource type="Script" path="res://scenes/npc_1.gd" id="1_otn3j"]
+[ext_resource type="Texture2D" uid="uid://dw2e4e8f2hrcl" path="res://assets/kenney_platformercharacters/PNG/Female/female_tilesheet.png" id="2_pdafk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d7le"]
+size = Vector2(15.5, 21.75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma1g5"]
+atlas = ExtResource("2_pdafk")
+region = Rect2(0, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eatx3"]
+atlas = ExtResource("2_pdafk")
+region = Rect2(480, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oux5"]
+atlas = ExtResource("2_pdafk")
+region = Rect2(160, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os87n"]
+atlas = ExtResource("2_pdafk")
+region = Rect2(80, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anvot"]
+atlas = ExtResource("2_pdafk")
+region = Rect2(560, 110, 80, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ifa2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ma1g5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eatx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oux5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os87n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anvot")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Npc1" type="CharacterBody2D"]
+script = ExtResource("1_otn3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -2.5)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_0d7le")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_3ifa2")
+animation = &"walk"

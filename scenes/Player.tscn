@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bq4q0vbsqxcwp"]
+[gd_scene load_steps=14 format=3 uid="uid://bq4q0vbsqxcwp"]
 
 [ext_resource type="Script" path="res://scenes/Player.gd" id="1_57684"]
 [ext_resource type="Texture2D" uid="uid://cirwssqa1y3jv" path="res://assets/fasilkom.png" id="2_8f6mc"]
 [ext_resource type="Texture2D" uid="uid://1xshihxylvkf" path="res://assets/kenney_platformercharacters/Vector/player_vector.svg" id="3_0nppa"]
+[ext_resource type="AudioStream" uid="uid://ba8oy2c2xc1nu" path="res://assets/walking-sound-effect-272246.mp3" id="4_fk7qe"]
+[ext_resource type="AudioStream" uid="uid://b1dgp3g377ffx" path="res://assets/doorhit-98828.mp3" id="5_k2bea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wyapu"]
 size = Vector2(61, 96)
@@ -86,4 +88,14 @@ texture = ExtResource("2_8f6mc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v5rk2")
-animation = &"jump"
+animation = &"walk"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fk7qe")
+volume_db = 1.981
+
+[node name="CollisionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_k2bea")
+volume_db = 5.943

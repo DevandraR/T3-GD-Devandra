@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsyfep1odrxje"]
+[gd_scene load_steps=8 format=3 uid="uid://dsyfep1odrxje"]
 
-[ext_resource type="PackedScene" uid="uid://db1xs0m4csyem" path="res://Scenes/Ground.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://db1xs0m4csyem" path="res://scenes/Ground.tscn" id="1"]
+[ext_resource type="Script" path="res://scenes/mouse_input.gd" id="1_lb1ob"]
 [ext_resource type="PackedScene" uid="uid://bq4q0vbsqxcwp" path="res://scenes/Player.tscn" id="2_py1e8"]
+[ext_resource type="AudioStream" uid="uid://qwfyhwa8f8i" path="res://assets/no-copyright-music-happy-306601.mp3" id="3_q5vc3"]
+[ext_resource type="PackedScene" uid="uid://botyeca0d8gs4" path="res://scenes/Npc1.tscn" id="4_d0i6b"]
+[ext_resource type="AudioStream" uid="uid://bbtnhpafhxn1v" path="res://assets/game-bonus-2-294436.mp3" id="6_u8uiv"]
+[ext_resource type="AudioStream" uid="uid://ba8oy2c2xc1nu" path="res://assets/walking-sound-effect-272246.mp3" id="7_6c7nn"]
 
 [node name="Root" type="Node2D"]
+script = ExtResource("1_lb1ob")
 
 [node name="Ground" parent="." instance=ExtResource("1")]
 position = Vector2(507.708, 363.86)
@@ -22,3 +28,36 @@ position = Vector2(-56, 366)
 
 [node name="Player" parent="." instance=ExtResource("2_py1e8")]
 position = Vector2(201, 157)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1083, 132)
+stream = ExtResource("3_q5vc3")
+volume_db = 5.0
+autoplay = true
+
+[node name="Ground6" parent="." instance=ExtResource("1")]
+position = Vector2(-410, 366)
+
+[node name="Ground7" parent="." instance=ExtResource("1")]
+position = Vector2(-763, 367)
+
+[node name="Ground8" parent="." instance=ExtResource("1")]
+position = Vector2(-1115, 367)
+
+[node name="Ground9" parent="." instance=ExtResource("1")]
+position = Vector2(-1467, 367)
+
+[node name="Ground10" parent="." instance=ExtResource("1")]
+position = Vector2(-1680, 226)
+rotation = 1.5708
+
+[node name="Npc1" parent="." instance=ExtResource("4_d0i6b")]
+position = Vector2(-729, 288)
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_u8uiv")
+volume_db = 0.99
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_6c7nn")
+volume_db = 1.981
