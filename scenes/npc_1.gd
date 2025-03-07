@@ -7,9 +7,11 @@ extends CharacterBody2D
 var moving_right: bool = true  # true = kanan, false = kiri
 var start_position: Vector2
 
+
 func _ready():
 	start_position = global_position
 	animated_sprite.play("walk")  # Mulai animasi berjalan
+
 
 func _process(delta):
 	# Tentukan arah gerak

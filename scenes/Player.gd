@@ -10,6 +10,7 @@ var jump_counter
 @onready var walk_audio_player = $AudioStreamPlayer2D3
 @onready var collision_audio_player = $CollisionSound
 
+
 func _physics_process(delta):
 	velocity.y += delta * gravity
 
